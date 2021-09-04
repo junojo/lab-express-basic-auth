@@ -17,6 +17,14 @@ router.get('/register', (req, res, next) => {
 
 router.post('/register', (req, res, next) => {
   const { name, email, password } = req.body;
+  // make sure users fill all mandatory fields:
+  if (!name || !email || !password) {
+    res.render('register', {
+      errorMessage:
+        'All fields are mandatory. Please provide your username, email and password.'
+    });
+    return;
+  }
   bcryptjs
     .hash(password, 10)
     .then((passwordHashAndSalt) => {
