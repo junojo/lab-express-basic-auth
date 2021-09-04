@@ -1,1 +1,13 @@
-<h1>Hello World</h1>
+{{#if user}}
+  <h1>Hello
+    <span>
+      {{user.name}}
+    </span>
+  </h1>
+{{else}}
+  <h1>Hello
+    <span>
+      Stranger
+    </span>
+  </h1>
+{{/if}}
